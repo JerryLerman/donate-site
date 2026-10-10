@@ -3,50 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support My Fediverse Infrastructure</title>
+  <title>Please support the servers</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <div class="container">
     <header>
-      <img src="{{ url_for('static', filename='images/empty-pockets.jpeg') }}" class="header-graphic" alt="Turned-out empty pockets">
-      <h1>Support the Servers</h1>
-      <p class="subtitle">Self-hosting federated instances isn't free—servers, block storage, and bandwidth add up. If you find these services useful, help keep the lights on!</p>
+      <img src="{{ url_for('static', filename='images/empty-pockets.jpeg') }}" class="header-graphic" alt="Cartoon character with empty pockets">
+      <h1>Please support the servers</h1>
     </header>
 
-    <div class="section-label">One-Time &amp; Recurring Subscriptions</div>
-    <div class="btn-grid">
-      {% if kofi_url %}
-      <a href="{{ kofi_url }}" class="btn btn-kofi" target="_blank" rel="noopener noreferrer">Ko-fi</a>
-      {% endif %}
-      {% if patreon_url %}
-      <a href="{{ patreon_url }}" class="btn btn-patreon" target="_blank" rel="noopener noreferrer">Patreon</a>
-      {% endif %}
-      {% if liberapay_url %}
-      <a href="{{ liberapay_url }}" class="btn btn-liberapay" target="_blank" rel="noopener noreferrer">Liberapay</a>
-      {% endif %}
-      {% if stripe_url %}
-      <a href="{{ stripe_url }}" class="btn btn-stripe" target="_blank" rel="noopener noreferrer">Stripe</a>
-      {% endif %}
-    </div>
+    <div class="content-layout">
+      <!-- Left Column: Mission & Narrative -->
+      <div class="story-content">
+        <p>I'm Jerry and I host a number of federated servers because I believe people need to have access to social sites and messaging applications that are not centrally owned by corporations whose intentions are to track you for revenue opportunity or to violate your privacy rights.</p>
+        
+        <p>But this effort, my hobby, is very expensive. I am willing to spend the time (a lot, believe me) on maintaining these systems, but it has become very expensive and this is creating pressure.</p>
+        
+        <div class="highlight-callout">I NEED PARTNERS!</div>
+        
+        <p>You can partner with me by donating money to help pay for the infrastructure. These servers are free and will always be free, but if you can easily afford to join me, please consider it.</p>
+        
+        <div class="cost-badge">
+          Together the cost is running over <strong>$800 per month</strong>.
+        </div>
 
-    <div class="section-label">Cryptocurrency</div>
-    <div class="crypto-group">
-      {% if btc_address %}
-      <div class="crypto-row">
-        <span class="crypto-tag">BTC</span>
-        <span class="crypto-val" id="btc-val">{{ btc_address }}</span>
-        <button class="copy-btn" type="button" data-target="btc-val">Copy</button>
+        <p class="closing-pitch">If you find these services useful, and you are financially comfortable, please help keep the lights on!</p>
       </div>
-      {% endif %}
 
-      {% if eth_address %}
-      <div class="crypto-row">
-        <span class="crypto-tag">ETH</span>
-        <span class="crypto-val" id="eth-val">{{ eth_address }}</span>
-        <button class="copy-btn" type="button" data-target="eth-val">Copy</button>
+      <!-- Right Column: Infrastructure & Action Items -->
+      <div class="action-content">
+        <div class="server-panel-title">Hosted Infrastructure</div>
+        <ul class="server-list">
+          <li><strong>Mastodon:</strong> <a href="https://hear-me.social" target="_blank" rel="noopener noreferrer">hear-me.social</a>
+            <ul class="sub-server-list">
+              <li>Associated Phanpy UI: <a href="https://phanpy.hear-me.social" target="_blank" rel="noopener noreferrer">phanpy.hear-me.social</a></li>
+            </ul>
+          </li>
+          <li><strong>PieFed:</strong> <a href="https://feddit.online" target="_blank" rel="noopener noreferrer">feddit.online</a></li>
+          <li><strong>Pixelfed:</strong> <a href="https://gr8.pics" target="_blank" rel="noopener noreferrer">gr8.pics</a></li>
+          <li><strong>PeerTube:</strong> <a href="https://my-sunshine.video" target="_blank" rel="noopener noreferrer">my-sunshine.video</a></li>
+          <li><strong>Matrix:</strong> <a href="https://secure-channel.net" target="_blank" rel="noopener noreferrer">secure-channel.net</a></li>
+          <li><strong>XMPP/Jabber:</strong> <a href="https://between-us.online" target="_blank" rel="noopener noreferrer">between-us.online</a></li>
+          <li><strong>Mobilizon:</strong> <a href="https://my-group.events" target="_blank" rel="noopener noreferrer">my-group.events</a></li>
+          <li><strong>Email server:</strong> <a href="https://lerman.world" target="_blank" rel="noopener noreferrer">lerman.world</a></li>
+        </ul>
+
+        <div class="section-label">One-Time &amp; Recurring Subscriptions</div>
+        <div class="btn-grid">
+          {% if kofi_url %}
+          <a href="{{ kofi_url }}" class="btn btn-kofi" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+          {% endif %}
+          {% if patreon_url %}
+          <a href="{{ patreon_url }}" class="btn btn-patreon" target="_blank" rel="noopener noreferrer">Patreon</a>
+          {% endif %}
+          {% if liberapay_url %}
+          <a href="{{ liberapay_url }}" class="btn btn-liberapay" target="_blank" rel="noopener noreferrer">Liberapay</a>
+          {% endif %}
+          {% if stripe_url %}
+          <a href="{{ stripe_url }}" class="btn btn-stripe" target="_blank" rel="noopener noreferrer">Stripe</a>
+          {% endif %}
+        </div>
+
+        <div class="section-label">Cryptocurrency</div>
+        <div class="crypto-group">
+          {% if btc_address %}
+          <div class="crypto-row">
+            <span class="crypto-tag">BTC</span>
+            <span class="crypto-val" id="btc-val">{{ btc_address }}</span>
+            <button class="copy-btn" type="button" data-target="btc-val">Copy</button>
+          </div>
+          {% endif %}
+
+          {% if eth_address %}
+          <div class="crypto-row">
+            <span class="crypto-tag">ETH</span>
+            <span class="crypto-val" id="eth-val">{{ eth_address }}</span>
+            <button class="copy-btn" type="button" data-target="eth-val">Copy</button>
+          </div>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
     </div>
   </div>
 
